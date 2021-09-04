@@ -5,14 +5,25 @@ import 'package:flutter/material.dart';
 // }
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget{
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return MyAppState();
+  }
+}
+class MyAppState extends State<MyApp> {
+  var ansIndex=0;
   @override
   Widget build(BuildContext context) {
     var str = ['str1', 'str2', 'str3'];
     var ans= ['ans1', 'ans2', 'ans3'];
-    var ansIndex=0;
+
     void answer(){
-      ansIndex+=1;
+      setState(() {
+        ansIndex+=1;
+        ansIndex%=3;
+      });
       print (ansIndex);
     }
     return MaterialApp(
